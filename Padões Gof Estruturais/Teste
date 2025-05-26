@@ -1,6 +1,0 @@
-from random import choices
-
-lista1 = ["R","L","B","D","F","U"]
-lista2 = [" ", "2","'"]
-resultado = choices(lista1),choices(lista2)
-print(resultado)
