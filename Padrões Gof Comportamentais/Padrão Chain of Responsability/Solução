@@ -1,0 +1,31 @@
+///supondo q um supervisor de loja queira dar desconto a um cliente porem n tem permissao, ele vai ao gerente,
+/// e o gerente ao seu superior, e assim em diante, ate conseguir uma resposta retorno para o cliente
+
+public abstract class TarifadorLigacao {
+    private TarifadorLigacao sucessor;
+    public TarifadorLigacao setSucessor(TarifadorLigacao sucessor) {
+        this.sucessor = sucessor;
+        return this;
+        //retorna ele proprio para facilitar a construcao da cadeia de objetos
+    } 
+    public BigDecimal tarifar (Ligacao ligacao) {
+        //este método na superclasse repassa a chamada para o próximo objeto da cadeia
+        return (sucessor != null)
+            ? sucessor.tarifar (ligacao);
+                :new BigDecimal(0);
+    }
+}
+
+//implementação de uma classe tarifadora para cada tipo de ligação
+
+public class TarifadorLigacaoInterna extends TarifadorLigacao {
+    //método que calcula o custo de uma ligação recebida como parametro
+    public BigDecimal tarifar(Ligacao ligacao) {
+        if (ligacao.isInterna()){
+            return tarifarLigacaoInterna(ligacao); //se for ligacao inter, tarifa
+        } else {
+            return super.tarifar(ligacao); //se nao for, repassa para proximo da cadeia
+            
+        }
+    }
+}
