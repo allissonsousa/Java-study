@@ -1,0 +1,5 @@
+///Encapsulamento de algoritimo, cada comando em uma classe independente, tratamento de eventos de forma distribuida
+/// Fragmentação da complexidade do sistema
+/// Desacoplamento entre o objeto que dez a requisicao e objeto q processa ela
+/// Reutilizaçao de comandos comuns
+/// possibilidade de undo e redo
