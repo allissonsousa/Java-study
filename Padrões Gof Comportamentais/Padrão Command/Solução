@@ -75,9 +75,11 @@ public class AppExemplo{
                                             //STRING ARGS= permite receber argumentos do terminal
             Jogo jogo = new Jogo(); //variavel jogo= contem o proprio  jogo em si
             //classe Jogo = contem o estado atual do jogo
-        InterfaceJogo controlador = new InterfaceJogo(); //controlador é uma instancia da classe interfacejogo
+        InterfaceJogo controlador = new InterfaceJogo(); //controlador é uma instancia da classe interfacejogo, cria 
+                                                            //um objeto q controla a interface do jogo
         controlador.setConfiguraçãoJogo(ConfiguracaoJogo.obterConfiguracaoPadrao(jogo)); 
-                    //
+                    //chama o metodo statico(obtconfigpadrao da classe configjogo), que recebe o jogo como argumento
+                    //e retorna um confunto de comandos/configuracar padrao
         //codigo restante para colocar o jogo no ar
     }
 }

@@ -1,0 +1,14 @@
+///A proposta do padrao iterator é responsabilizar o acesso e percurso de acesso a um objeto especifico
+/// como um ponteiro por exemplo
+/// arrylist,linkedlist, hashset e treeset sao descensdentes da classe collection
+
+public void removerItensSemEstoque (Collection<Produto> produtos) {
+    //colecao de produtos cria e retorna um iterator capaz de percorrer a colecao
+    iterator<Produto> iterator = produtos.iterator();
+    while (iterator.hasNext()) {
+        Produto produto = iterator.next();
+        if (Produto.getQuantidadeEstoque() == 0){
+            itens.remove(item);
+        }
+    }
+} 
