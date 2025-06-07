@@ -1,0 +1,51 @@
+///Faz a mediação entre objetos que tem uma comunicação complexa
+/// Conjunto de chamadas 
+/// Participante Abstrato e concreto
+/// Mediador Abstrato e concreto
+/// O mediador tem acoes y e x, os participantes falam com o mediador pedindo uma das acoes x ou y
+
+public abstract class Colleague{  //abstract cria uma classe base incompleta q nao pode ser instanciada diretamente
+                                //Obriga as subclasses a usar metodos especificos
+                                //sera implementada por outra subclasse
+    //Todo objeto da interação possui uma referencia para o mediador
+    protected MediadorCompra mediador; //interface q define todas as notificacoes que os componentes podem enviar para o mediador
+    public Colleague(Mediador mediador){
+        this.mediador = mediador;
+    }
+}
+
+public class Pagamento extends Colleague {  //extends =  diz q uma classe herda de outra
+                                            //implementa metodos abstratos obrigatorios dessa classe
+    public Pagamento(MediadorCompra mediador){
+        super(mediador);
+    }
+    public void realizarPagamento(int idCompra){
+        //código para realizar pagamento
+        mediador.pagamentoConcluido(idCompra); // notifica o mediador
+    }
+}
+public class Compra extends Colleague {
+    public Compra(MediadorCompra mediador) {
+        super(mediador);
+    }
+    public void confirmar(int idCompra){
+        //codigo para confirmação da compra
+        mediador.pedidoConfirmado(); //notifica o mediador
+    }
+}
+public class Logistica extends Colleague{
+    public Logistica(MediadorCompra mediador) {
+        super(mediador);
+    }
+    public void prepararEntrega(CompraVO dadosCompra){
+        //codigo que inicia o processo de logistica dae entrega da compra
+    }
+}
+public class SAC extends Colleague{
+    public SAC(MediadorCompra mediador){
+        super(mediador;)
+    }
+    public void enviarEmailConfirmarCompra(CompraVO dadosCompra){
+        //codigo para enviar o email de confirmação da compra para o cliente
+    }
+}
