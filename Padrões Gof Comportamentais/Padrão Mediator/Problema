@@ -1,0 +1,51 @@
+///encapsula a forma de interação entre um conjunto de objetos, com o objetivo de evitar que eles tenham 
+/// que referenciar uns aos outros explicitamente.
+/// os objetos se comunicam apenas como mediador
+/// fica a cargo do mediador definir o encaminhamento que deve ser dado a cada evento.
+
+
+public abstract class Colleague {
+    //Todo obketo da interacao possui uma referenia para o mediador
+    protected MediadorCompra mediador;  
+
+    public Colleague(MediadorCompra mediador) {
+        this.mediador = mediador;
+    }
+}
+
+public class Pagamento extends Colleague {
+    public Pagamento (MediadorCompra mediador) {
+        super(mediador);
+    }
+    public void realizarPagamento(int idCompra) {
+        //código para realizar pagamento 
+        mediador.pagamentoConcluido(idCompra); //notifica o mediador
+    }
+}
+
+public class Compra extends Colleague{
+    public Compra(MediadorCompra mediador) {
+        super(mediador);
+    }
+    public void confirmar(int idCompra) {
+        //codigo para confirmação da compra
+        mediador.pedidoConfirmado(); //notifica o mediador
+    }
+}
+
+public class Logistica extends Colleague{
+    public Logistica(MediadorCompra mediador) {
+        super(mediador);
+    }
+    public viud prepararEntrega(CompraVO dadosCompra)
+    //codigo que inicia o processo de logistica de entrega da compra
+}
+
+public class SAC extends Colleague {
+    public SAC(MediadorCompra mediador) {
+        super(mediador);
+    }
+    public void enviarEmailConfirmacaoCompra(CompraVO dadosCompra){
+        //codigo para enviar o email de confirmacao da compra par ao cliente
+    }
+}
