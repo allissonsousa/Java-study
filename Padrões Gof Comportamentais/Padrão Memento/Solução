@@ -77,5 +77,10 @@ public class Exemplo {
         //salva o estado atual do pedido, com dois itens
         PedidoMemento memento = pedido criarMemento();
         //adiciona o terceiro item ao pedido
+        pedido.adicionarItem(3, '3456');
+        System.ou.println(pedido.getItens().size()); //imprime o valor 3
+        //restaura a situação salva do pedido, com dois itens apenas
+        pedido.restaurarMemento(memento);
+        System.out.println(pedido.getItens(.size()));; //imprime o valor 2
     }
 }
