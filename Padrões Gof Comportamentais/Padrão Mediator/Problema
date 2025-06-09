@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ///encapsula a forma de interação entre um conjunto de objetos, com o objetivo de evitar que eles tenham 
 /// que referenciar uns aos outros explicitamente.
 /// os objetos se comunicam apenas como mediador
@@ -10,7 +9,6 @@ public abstract class Colleague {
     protected MediadorCompra mediador;  
 
     public Colleague(MediadorCompra mediador) {
-=======
 ///Faz a mediação entre objetos que tem uma comunicação complexa
 /// Conjunto de chamadas 
 /// Participante Abstrato e concreto
@@ -23,12 +21,10 @@ public abstract class Colleague{  //abstract cria uma classe base incompleta q n
     //Todo objeto da interação possui uma referencia para o mediador
     protected MediadorCompra mediador; //interface q define todas as notificacoes que os componentes podem enviar para o mediador
     public Colleague(Mediador mediador){
->>>>>>> 5fe1f772e199bf86ed1ef28725ff2a4743f75bfb
         this.mediador = mediador;
     }
 }
 
-<<<<<<< HEAD
 public class Pagamento extends Colleague {
     public Pagamento (MediadorCompra mediador) {
         super(mediador);
@@ -44,37 +40,15 @@ public class Compra extends Colleague{
         super(mediador);
     }
     public void confirmar(int idCompra) {
-=======
-public class Pagamento extends Colleague {  //extends =  diz q uma classe herda de outra
-                                            //implementa metodos abstratos obrigatorios dessa classe
-    public Pagamento(MediadorCompra mediador){
-        super(mediador);
-    }
-    public void realizarPagamento(int idCompra){
-        //código para realizar pagamento
-        mediador.pagamentoConcluido(idCompra); // notifica o mediador
-    }
-}
-public class Compra extends Colleague {
-    public Compra(MediadorCompra mediador) {
-        super(mediador);
-    }
-    public void confirmar(int idCompra){
->>>>>>> 5fe1f772e199bf86ed1ef28725ff2a4743f75bfb
         //codigo para confirmação da compra
         mediador.pedidoConfirmado(); //notifica o mediador
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 5fe1f772e199bf86ed1ef28725ff2a4743f75bfb
 public class Logistica extends Colleague{
     public Logistica(MediadorCompra mediador) {
         super(mediador);
     }
-<<<<<<< HEAD
-    public viud prepararEntrega(CompraVO dadosCompra)
+    public void prepararEntrega(CompraVO dadosCompra)
     //codigo que inicia o processo de logistica de entrega da compra
 }
 
@@ -86,17 +60,3 @@ public class SAC extends Colleague {
         //codigo para enviar o email de confirmacao da compra par ao cliente
     }
 }
-=======
-    public void prepararEntrega(CompraVO dadosCompra){
-        //codigo que inicia o processo de logistica dae entrega da compra
-    }
-}
-public class SAC extends Colleague{
-    public SAC(MediadorCompra mediador){
-        super(mediador;)
-    }
-    public void enviarEmailConfirmarCompra(CompraVO dadosCompra){
-        //codigo para enviar o email de confirmação da compra para o cliente
-    }
-}
->>>>>>> 5fe1f772e199bf86ed1ef28725ff2a4743f75bfb
