@@ -14,7 +14,7 @@ public abstract class Colleague {
 /// Participante Abstrato e concreto
 /// Mediador Abstrato e concreto
 /// O mediador tem acoes y e x, os participantes falam com o mediador pedindo uma das acoes x ou y
-
+    }}
 public abstract class Colleague{  //abstract cria uma classe base incompleta q nao pode ser instanciada diretamente
                                 //Obriga as subclasses a usar metodos especificos
                                 //sera implementada por outra subclasse
@@ -60,3 +60,6 @@ public class SAC extends Colleague {
         //codigo para enviar o email de confirmacao da compra par ao cliente
     }
 }
+
+
+
