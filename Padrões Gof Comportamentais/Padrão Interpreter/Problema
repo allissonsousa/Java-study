@@ -1,0 +1,5 @@
+Interpretador de sintaxes, usados em operações de codificação e decodificação de dados.
+Pode ser usado em captura de dados codificados de satelites e interpretação dos mesmos.
+Usa regras de uma gramatica que compoem uma arvore sintatica.
+Pode ser usado para interpretar regras de estruturas algebricas de calculos matematicos
+interpretando as equações
