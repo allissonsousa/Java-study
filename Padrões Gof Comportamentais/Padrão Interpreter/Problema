@@ -1,0 +1,4 @@
+///Define um interpretador de comandos baseado em um conjunto de regras
+/// compilação de expressões regulares, comuns na filtragem e identificação de conteúdo em sequências de texto.
+///  definir uma representação para a gramática de uma linguagem e um módulo capaz de interpretar sentenças nessa 
+/// linguagem.
