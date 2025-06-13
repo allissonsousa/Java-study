@@ -140,3 +140,7 @@ public class ServicoBilhetagem{
         //salvar os dados do cliente no banco de dados
     }
 }
+
+//COESAO FUNCIONAL
+//reune elementos que cumprem um proposito juntos
+//ex: classes do pacote java.io

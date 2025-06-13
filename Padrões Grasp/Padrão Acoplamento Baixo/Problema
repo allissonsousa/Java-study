@@ -1,0 +1,8 @@
+///minima dependencia entre classes e modulos do sistemas
+/// modificações em um modulo tem impacto minimo em outros
+/// uma classe n precisa saber muito sobre a outra
+/// melhor isolamento de componentes
+/// facilita a manutenção e evolução do sistema
+/// reutilização de componentes
+/// facilidade para testar isoladamente partes do sistema
+/// pode introduzir maior complexidade no  projeto
