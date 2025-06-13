@@ -1,0 +1,142 @@
+///COESAO LOGICA
+/// agrupamento dos elemtos logicamente relacionados
+
+public class ProdutoRepository {
+    public static final  int ARQUIVO_LOCAL = 1;
+    public static final int ARQUIVO_FTP = 2;
+    public static final int BANCO_RELACIONAL = 3;
+    //STATIC >> cria atriutos/metodos que pertencem a classe nao a cada objeto
+    //o main é sempre static
+    //valor/funcao que nao depende do objeto
+    //compartilhar uma variavel entre todas as instancias
+    //nao pode acessar outras instancias 'nao static'
+
+    public Produto obterProduto (int origem , String chave) {
+        switch (origem) {
+            case ARQUIVO_LOCAL:
+                return obterProdutoViaArquivoLocal(chave);
+            case ARQUIVO_FTP:
+                return obterProdutoViaArquivoFTP(chave);
+            case BANCO_RELACIONAL:
+                return obterProdutoViaBancoRelacional(chave);
+        }
+    }
+    private Produto obterProdutoViaArquivoLocal (String chave){
+        //implementacao da operacao de leitura do produto via arquivo via local
+    }
+    private Produto obterProdutoViaArquivoFTP(String chave){
+        //implementacao da operacao de leitura do produto via arquivo via ftp
+    }
+    private Produto obterProdutoViaBancoRelacional(String chave){
+        //implementacao da operacao de leitura do produto via banco de dado relacional
+    }
+}
+
+//COESÃO TEMPORAL
+//agrupa os elementos/funcoes em classes de forma q fiquem separados por seus determinados tempos de execução
+//exemplo
+//ao iniciar o windows sera carregada a interface os drivers e os sistemas basicos
+//dentro da classe iniciar ficariam as metodos e funcoes de driver/sistemas/interface
+//e outra classe seria criada para oque viria no tempo adiante
+
+
+public class Startup {
+    public void inicializar(){
+        inicializarLog();
+        inicializarGUI();
+        incializarConexoesBD();
+        inicializarTarefasSegundoPlano();
+    }
+    private void inicializarLog(){
+        //inicialiar log do sistema
+    }
+    private void inicializarGUI(){
+        //incializar interface grafica do sistema
+    }
+    private void inicializarTarefasSegundoPlano(){
+        //inicializar tarefas de seguundo plano, executadas em threads especificos
+    }
+    private void incializarConexoesBD(){
+        //inicializar conexao com banco de dados
+    }
+}
+
+
+//COESÃO PROCEDURAL
+//agrupa dados por eles serem executados em determinada sequencia utilizando diferente conjunto de dados
+//usado em classe god
+//concentra na propria classe o codigo de processamento dessa requisição
+
+public class ServicoPedido{
+    public void confirmarPedido(){
+        obterDadosPagameto();
+        validarDadosPagamento();
+        aprovarPagamento();
+        salvarPedido();
+        atualizarEstoque();
+        enviarPedidoParaProvisionamento();
+        enviarEmailConfirmacao();
+    }
+    private void obterDadosPagameto(){
+        //obter dados do cliente para pagamento
+    }
+    private void validarDadosPagamento(){
+        //validar os dados do pagamento
+    }
+    private void aprovarPagamento(){
+        //aprova os dados do pagamento
+    }
+    private void salvarPedido(){
+        //salva os detalhes do pedido
+    }
+    private void atualizarEstoque(){
+        //atualizar dados do estoque
+    }
+    private void enviarEmailConfirmacao(){
+        //envia email de confirmacao da compra para o
+    }
+    private void enviarPedidoParaProvisionamento(){
+        //envia o pedido para ser separado e embalado 
+    }
+}
+
+
+
+//COESAO DE COMUNICACAO
+//agrupamento dos elementos que realizam suas diferentes funcoes utilizando o mesmo conjunto de dados
+
+public class Conta{
+    public BigDecimal saldo(){
+        //obter saldo da conta
+    }
+    public void enviarExtratoParaCliente(){
+        //gerar relatorioc om extrado da conta e enviar por email para o cliente
+    }
+    public void salvar(){
+        //salva os dados do cliente no banco de dados
+    }
+}
+
+
+
+//COESAO SEQUENCIAL
+//agrupamento dos elementos por conterem todos os passos de execução baseados nos mesmos conjuntos de dados
+//o resultado de um passo é utilizado no proximo e assim em diante
+//reune elementos que trabalham sobre o mesmo conjunto de dados, formando um pipeline de processamento
+
+public class ServicoBilhetagem{
+    public void capturarBilhete(String dados){
+        Bilhete bilheteFormatado = formatarBilhete(dados);
+        Bilhete bilheteIdentificado = identificarBilhete(bilheteFormatado);
+        savarBilhete(bilheteIdentificado);
+    }
+    private Bilhete formatarBilhete(String dados){
+        //formata o blilhete, extraindo os campos do texto recebido como parametro
+    }
+    private Bilhete identificarBilhete(Bilhete bilhete){
+        //gera o campo de identificacao do bilhete baseado nos seus campos
+    }
+    private void salvarBilhete(Bilhete bilhete){
+        //salvar os dados do cliente no banco de dados
+    }
+}
