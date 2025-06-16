@@ -1,0 +1,11 @@
+/// modulo chamador passa uma estrutura de daos para um modulo chaado
+/// q utiliza um pequeco subconjunto de dados dessa estrutura
+
+public class Pedido{
+    private Date data;
+    private int local;
+    private List<ItemPedido> itens;
+    private CLiente cliente;
+    private Endereco enderecoEntrega;
+    private Pagamentos;
+}
