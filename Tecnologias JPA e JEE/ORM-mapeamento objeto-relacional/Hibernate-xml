@@ -1,0 +1,13 @@
+<hibernate-mapping schema="loja">
+    <class name="model.Produto" table="PRODUTO">
+        <id name="codigo" type="int">
+            <column name="COD_PRODUTO"/>
+        </id>
+        <property name="nome" type="string" column="NOME"/>
+        <property name="quantidade" type="int" column="QUANTIDADE"/>
+    </class>
+</hibernate-mapping>
+
+
+<!>para o hibernate as entidades sao apenas classes comuns, sem métodos de negocios, com um conjunto de propriedades e um consultor padrao
+

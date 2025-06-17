@@ -1,0 +1,27 @@
+JPA = Java Persistance API
+Se resume a uma API que simplifica a persistencia de dados em bd relacionais
+Esse framework é usado pra criar uma camada de abstração e manipular os dados de maneira mais eficiente
+----------------------------------------
+EJBs = Enterprise Java Beans
+Componentes da plataforme JEE(Java Enterprise Edition) permite implementar a logica de negocio no servidor
+Capacidades de serem utilizados em camadas separadas WAR(web aplication archive)
+Implementa regras e processos do sistema
+
+Permite a reutilização de EJBs em diferentes aplicações
+Oferecem suporte a transações
+Lida bem com escalabilidade
+------------------------------
+Arquitetura MVC
+Model-View-Controler
+
+Model > Encapsula manipulação e acesso aos dados, definicao das entidades e informações, calculos
+
+View > Representação dos dados e interação com o usuariom, camada grafica da aplicação (html,css,js)
+    consome os dados do Model e exibe ao usuariom
+
+Controler > Recebe as requisições do usuario e acessa os dados do modelo, funcionando como um intermediador
+
+Esse metodo garante a separação clara de compontentes do sistema
+
+---------
+Front controler > garante um melhor fluxo de requisiçoes que vem da parte do usuario
