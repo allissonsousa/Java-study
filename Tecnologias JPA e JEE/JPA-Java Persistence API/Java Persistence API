@@ -81,25 +81,28 @@ public class PersistenceManager {
 
 //------------OPERAÇÃO DE PERSISTENCIA
 
+//apos configurar a unidade de persistencia e criar a entidade
 import javax.persistence.EntityManager;
 
 public class ExemploPersistencia{
     public static void main (String[] args) {
-        EntityManager entityManager = PersistenceManager.getEntityManager();
+        EntityManager entityManager = PersistenceManager.getEntityManager();  //criação do entitymanager, get pega o gerenciador de entidade
 
         try {
-            entityManager.getTransaction().begin();
-            Produto produto = new Produto(1l,'Notebook',1999.99);
-            entityManager.persist(produto);
-            entityManager.getTransaction().commit();
-        } catch (Exception e) {
+            entityManager.getTransaction().begin();  //tudo q eu fizer dentro da transação, ou faz tudo corretamente ou faz nada, 
+                                                    //se deu algo de errado desfaz oq foi feito
+            Produto produto = new Produto(1l,'Notebook',1999.99); //id = 1L, nome = notebook, preco = 1999.99
+            entityManager.persist(produto);  //o gerenciador persiste o produto ou seja inclui ele no banco de dados, cria uma linha na tabela produto
+            entityManager.getTransaction().commit(); //pega a transação do gerenciador de entidade e faz um commit
+        } catch (Exception e) {  //caso de um erro
             //trata exceções
-            entityManager.getTransaction().rollback();
+            entityManager.getTransaction().rollback();  //se der  um erro volta atraz
             e.printStackTrace();
         } finally {
             //fecha o EntityManager
             entityManager.close();
-            PersistenceManager.closeEntityManagerFactory();
+            PersistenceManager.closeEntityManagerFactory(); //fecha a fabrica de entity manager
         }
     }
 }
+
