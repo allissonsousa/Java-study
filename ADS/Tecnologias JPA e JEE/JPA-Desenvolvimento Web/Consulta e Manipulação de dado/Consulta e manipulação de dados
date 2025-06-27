@@ -99,7 +99,26 @@ public class ExemploConsultaJPQL {
             String jpql = 'SELECT p FROM Produto p WHERE p.preco > :minPreco';
 
             //cria a consulta tipada
-            TypedQuery<Produto> querry = entityManager.createQuerry(jpql, Produto.class)
+            TypedQuery<Produto> querry = entityManager.createQuerry(jpql, Produto.class);
+
+            //define os paramtros da consulta
+            query.SetParameter("minPreco", 1000.0);
+
+            //Executa a consulta e obtem o resultado
+            List<Produto> produtos = querry.getResultList();
+
+            //exibe os resultados
+            for (Produto produto : produtos) {
+                System.out.println(Produto.getNome() + " - Preco :" + produto.getPreco())
+            }
+        } catch (Exception e){
+            //trata exceções
+            e.printStackTrace();  //exibe a sequencia de chamadas de metodos que levou ao erro da execução, servindo como um indicador de erro
+        } finally {
+            //fecha o entity manager
+            entityManager.close();
+            PersistenceManager.closeEntityManagerFactory();
         }
     }
 }
+
