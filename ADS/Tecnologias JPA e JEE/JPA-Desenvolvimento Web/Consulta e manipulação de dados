@@ -81,3 +81,25 @@ public class ExemploAtualizacaoDados {
         }
     }
 }
+
+
+
+//--------- CONSULTA COM JPQL
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
+
+public class ExemploConsultaJPQL {
+    public static void main(String[] args){
+        //obtem o entity manager a partir do persistencemanager
+        EntityManager entityManager = PersistenceManager.getEntityManager();
+
+        try {
+            //cria a consulta JPQL
+            String jpql = 'SELECT p FROM Produto p WHERE p.preco > :minPreco';
+
+            //cria a consulta tipada
+            TypedQuery<Produto> querry = entityManager.createQuerry(jpql, Produto.class)
+        }
+    }
+}

@@ -1,3 +1,0 @@
-<!--Além das anotaççoes de entidade vamos configurar o arquivo persistence.xml, definindo aspectos das conexões com o banco de dados
- o mesmo deve ser criado na pasta META-INF passando elementos como classe de conexão JDBC(Java Database Connectivity) ou o pool de conexões 
- do servidor, sendo sempre presente a especificação do framework de persistencia utilizado-->
