@@ -1,0 +1,44 @@
+
+//------- ENTITY MANAGER CONSULTA JPQL
+
+public class Principal {
+    public static void main(String[] args) {
+        //emf recebe o managerfactory
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory('ExemeploSimplesJPAPU'); 
+
+        //emf cria um manager que será a variavel em
+        EntityManager em = emf.createEntityManager();
+
+        //o manager em cria um objeto tipo querry que ia pro banco de dados
+        Querry querry = em.creatNamedQuerry("Produto.findAll");
+
+        //chama a lista de produtos que recebera o metodo querry e retornara o resultado da consulta
+        List<Produto> lista = querry.getResultList();
+
+        //para cada elemento da lista sera criado um print na tela
+        lista.forEach((e) -> {
+            System.out.println(e.getNome());
+        });
+
+        //fecha o managerentity
+        em.close()
+    }
+}
+
+
+//----- INCLUSÃO DE DADOS
+
+public static void incluir(Produto p){  //criação da funcão incluir 
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ExemploSimplesJPAPU";
+    EntityManager em = emf.createEntityManager();
+    try {
+        em.getTransaction().begin();
+        em.persist(p);
+        em.getTransaction().commit();
+    } catch(Exception e){
+        em.getTransaction().rollback();
+    } finally {
+        em.close();
+    })
+}
