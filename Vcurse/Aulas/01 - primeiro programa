@@ -1,0 +1,9 @@
+//pacote composto por varias classes
+package primeiroprograma; 
+        //classe
+public class PrimeiroPrograma { //classes são composta por metodos
+                  //metodo main ou prncipal
+    public static void main(String[] args) { 
+        System.out.println("Olá mundo!");
+    }
+}
