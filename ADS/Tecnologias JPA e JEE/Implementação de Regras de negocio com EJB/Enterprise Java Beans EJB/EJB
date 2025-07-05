@@ -25,3 +25,24 @@
 //O acesso ao banco de dados é realizado por  meio de um pool de conexões JDBC representado por um obj tipo DataSource
 // Registrado via JNDI
 //
+
+protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.println("< html >< body >");
+            try {
+                InitialContext ctx = new InitialContext();
+                DataSource dts = (DataSource) ctx.lookup("jdbc/loja");
+                Connection c1 = dts.getConnection();
+                Statement st = c1.createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM PRODUTO");
+                while(rs.next())
+                    out.println(rs.getString("NOME")+"
+                            ");
+                c1.close();
+            } catch (SQLException | NamingException ex) {
+            }
+            out.println("");
+        }
+} 
