@@ -1,5 +1,5 @@
 /// A arquitetura de objetos distribuidos é muito importante no uso de componentes EJB em servidores de aplicação como Glassfish
-/// EJB sao componentes da plataformas JEE, fornece modelo de programação robusto de escalavel
+/// EJB sao componentes da plataformas JEE, fornece modelo de programação robusto e escalavel
 /// Separação de responsabilidades
 /// OBJETOS DISTRIBUIDOS sao objetos que podem ser acessados por varios computadores em uma rede, diferentes partes de uma
 /// aplicação fiquem alocados em outras maquinas
@@ -7,7 +7,7 @@
 /// que estão em diferentes locais da rede.
 /// Escalabilidade horizontal
 /// Alta disponibilidade
-/// Intlerancia a falhas
+/// Intolerancia a falhas
 /// Ambiente com redundancias
 /// Alta disponibilidade
 /// Eficiencia na distribuição na estrutura de hardware
@@ -24,7 +24,8 @@
 
 //O acesso ao banco de dados é realizado por  meio de um pool de conexões JDBC representado por um obj tipo DataSource
 // Registrado via JNDI
-//
+
+//Acesso ao bd atravez da pool de conexoes JDBC
 
 protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -40,7 +41,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 while(rs.next())
                     out.println(rs.getString("NOME")+"
                             ");
-                c1.close();
+                c1.close();     //liberação da conexao para a proxima requisição
             } catch (SQLException | NamingException ex) {
             }
             out.println("");
