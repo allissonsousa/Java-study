@@ -1,8 +1,0 @@
-/// São softwares desenvolvidos para atender as necessidades complexas e especificas das organizações.
-
-/// Componentes das aplicações corporativas
-
-/// SESSION BEANS = processar a logica de negocios
-/// ENTITY BEANS = persistencia em banco de dados
-/// MESSAGE DRIVEN BEANS = processar mensagens assincronas
-
