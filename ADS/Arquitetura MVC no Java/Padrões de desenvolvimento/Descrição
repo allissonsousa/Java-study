@@ -1,0 +1,50 @@
+Os padrões de desenvolvimento fornecem vantagens ao desenvolvimento de aplicações
+São soluções comprovadas e reutilizadas para problemas comuns do desenvolvimento
+-soluções reutilizaveis
+-nome
+-descrição da finalizade
+-modelagem UML
+-modo de utilização
+-aumenta a produtividade
+-manutenção de código
+-documentação ampla
+
+São estes padrões que vimos em padrões GOF e GRASP, que são nada mais nada menos que soluções pra problemas decorrentes.
+Vejamos uns exemplos e suas finalidades
+
+Abstract Factory: definição de uma arquitetura abstrata
+para a geração de objetos, muito comum em frameworks.
+
+Command: encapsula o processamento da resposta para algum
+tipo de requisição, muito utilizado para o tratamento de solicitações feitas
+no protocolo HTTP.
+
+Data Access Object: utiliza classes específicas para
+concentrar as chamadas para o banco de dados.
+
+Facade: encapsula as chamadas para um sistema complexo,
+muito utilizado em ambientes corporativos.
+
+Flyweight: cria grupos de objetos que respondem a uma
+grande quantidade de chamadas.
+
+Front Controller: concentra as chamadas para o sistema,
+efetuando os direcionamentos corretos para cada chamada.
+
+Iterator: permite acesso sequencial aos objetos de uma
+coleção, o que é implementado nativamente no Java.
+
+Proxy: Define um objeto para substituir a referência de
+outro, utilizado nos objetos remotos para deixar a conexão transparente para
+o programador.
+
+Service Locator: gerencia a localização de recursos
+compartilhados, com base em serviços de nomes e diretórios.
+
+Singleton: garante a existência de apenas uma instância
+para a classe, como em controles de acesso.
+
+Strategy: seleciona algoritmos em tempo de execução, com
+base em algum parâmetro fornecido.
+
+
