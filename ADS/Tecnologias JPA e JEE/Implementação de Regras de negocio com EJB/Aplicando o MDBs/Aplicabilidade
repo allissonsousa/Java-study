@@ -7,24 +7,25 @@
 /// No projeto war crie a classe MeuProdutor que contenha um servlet para enviar mensagem ao receptor
 /// No projeto war, altere o index,html com um formulario de envio de mensagem
 /// Verifique o resultado no console do glassfish
+/// O glassfish é o software servidor de gerenciamento de mensagens assincronas
 
 // Codigo a seguir
 
 
-// ----Codigo do Receptor
-@MessageDriven(activationConfig = {
-    @ActivationConfigProperty(propertyName = "detinationLookup", propertyValue = "jms/MinhaQueue"),
-    @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
+// ----Codigo do Receptor            //anotação para entender que a classe é um message driven beans
+@MessageDriven(activationConfig = { 
+    @ActivationConfigProperty(propertyName = "detinationLookup", propertyValue = "jms/MinhaQueue"), //anotação especificação do topico de destino 
+    @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")  //definição de outras propriedades como filtro, cliente e provedor
 })
 
-public class MeuReceptor implements MessageListener {
+public class MeuReceptor implements MessageListener {  //o mdb implementa um listener pra ouvir as mensagens
 
     public MeuReceptor(){
 
     }
 
     @Override
-    public void onMessage (Message message){
+    public void onMessage (Message message){  //criação do metodo onmessage, para acessar os dados da mensagem, aplicar a logica de negocios nela, e tratar exceções
         try { System.out.println("Mensagem enviada: " + ((TextMessage) message).getText());
         }catch (JSMException ex) {
             System.out.println("Erro: " ex.getMessage());
@@ -70,3 +71,53 @@ public class extends HttpServlet{
 
 
 // ------ use o index.html q esta na pagina ao lado
+
+// ----------------------------------------------------------------- CODIGO MAIS SIMPLIFICADO 
+
+///----- Listener de mensagem
+
+@MessageDriven(
+    activationConfig = {
+        @ActivationConfigProperty(
+            propertyName = "DestinationType",
+            propertyValue = "javax.jms.Topic"
+        ),
+        @ActivationConfigProperty(
+            propertyName = "destinationLookup",
+            propertyValue = "javax:/jms/topic/MyTopic"
+        )})
+
+public class MyMessageDrivenBean implements MessageListener {
+
+    @Resource
+    private MessageDrivenContext context;
+
+    @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRED) //controle de transações a partir dessa anotação
+    public void onMessage(Message message) {
+        try {
+            //processar mensagem recebida
+            String conteudo = message.getBody(String.clas);
+            System.out.println("Mensagem recebida: " + conteudo);
+        }
+    }
+}
+
+/// ------Produtor de mensagem
+
+class MessageProducer{
+    @Resource(mappedName = "java:/jms/topic/MyTopic")
+    private Topic topic;
+
+    @Resource
+    private JMSContext context;
+
+    public void sendMessage(String message) {
+        try {
+            context.createProducer().send(topic, message);
+            System.out.println("Mensagem enviada: " + message);
+        } catch (JMSException e){
+            e.printStackTrace();
+        }
+    }
+}
