@@ -1,0 +1,23 @@
+
+-----VIEW
+
+JANELAS     HTTP                 *JSF*
+    .         .
+    .         .
+    .         .
+-----CONTROLER.
+    .         .
+    .         .                   *SPRING*
+    ..........OBJETO DE NEGOCIOS
+    .         .                   *EJB*
+    .         .
+    .         .
+------MODEL   .
+    .         .
+    .         .
+  ENTIDADE....DAO                 *HIBERNATE*
+            .
+            .
+            .
+            .
+      BANCO DE DADOS

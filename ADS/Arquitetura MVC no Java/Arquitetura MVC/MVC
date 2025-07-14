@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
-
+Muito utilizada para a reutilização de código, permitindo que o mesmo backend seja usado para mais de um estilo de apresentação de dados, como site, aplicativo etc
 
 -----------Model (modelo) > nessa camada, temos as entidades e as classes para acesso ao banco de dados.
 
