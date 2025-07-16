@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.ext linguist-language=Java
+ /pasta_ADS/ linguist-detectable=false
+/pasta_ADS/* linguist-language=Java
