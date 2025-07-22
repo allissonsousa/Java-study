@@ -2,6 +2,6 @@
 
 public class Welcomel {
     public static void main(String[] args) {
-        System.out.println("Welcome to Java Programa");
+        System.out.println("Bem vindo ao Java");
     }
 }
